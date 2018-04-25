@@ -382,7 +382,6 @@ module DocuSign_eSign
       end
     end
 
-
     def configure_jwt_authorization_flow(private_key_filename, oauth_base_path, client_id, user_id, expires_in)
       now = Time.now.to_i
       later = now + expires_in
@@ -412,10 +411,32 @@ module DocuSign_eSign
       data = JSON.parse(response[0])
       reponse_status_code = response[1]
 
-      if !response.nil? &&  reponse_status_code == 200 && !data["access_token"].nil? && !data["token_type"].nil?
+      if !response.nil? && reponse_status_code == 200 && !data["access_token"].nil? && !data["token_type"].nil?
         @default_headers.store('Authorization', data["token_type"] + ' ' + data["access_token"])
       end
     end
 
+    def configure_application_authorization(oauth_base_path, integrator_key, secret_key, code)
+      basic_authorization = Base64.encode64("#{integrator_key}:#{secret_key}").delete("\n")
+
+      header_params = {}
+      header_params.store('Content-Type', 'application/x-www-form-urlencoded')
+      header_params.store('Authorization', "Basic #{basic_authorization}")
+
+      body_params = {}
+      body_params.store('grant_type', 'authorization_code')
+      body_params.store('code', code)
+
+      response = call_api('POST', "https://#{oauth_base_path}/oauth/token", header_params: header_params, form_params: body_params, return_type: 'String')
+
+      data = JSON.parse(response[0])
+      reponse_status_code = response[1]
+
+      if response.present? && reponse_status_code == 200 && data['access_token'].present? && data['token_type'].present?
+        @default_headers.store('Authorization', "#{data['token_type']} #{data['access_token']}")
+      end
+
+      data
+    end
   end
 end

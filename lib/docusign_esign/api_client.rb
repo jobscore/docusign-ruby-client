@@ -22,6 +22,7 @@ module DocuSign_eSign
   class ApiClient
     # The Configuration object holding settings to be used in the API client.
     attr_accessor :config
+    attr_accessor :oauth_base_path
 
     # Defines the headers to be used in HTTP requests of all API calls by default.
     #
@@ -416,8 +417,8 @@ module DocuSign_eSign
       end
     end
 
-    def configure_application_authorization(oauth_base_path, integrator_key, secret_key, code)
-      basic_authorization = Base64.encode64("#{integrator_key}:#{secret_key}").delete("\n")
+    def configure_application_authorization(integrator_key, secret_key, code)
+      basic_authorization = basic_authorization_token(integrator_key, secret_key)
 
       header_params = {}
       header_params.store('Content-Type', 'application/x-www-form-urlencoded')
@@ -427,7 +428,7 @@ module DocuSign_eSign
       body_params.store('grant_type', 'authorization_code')
       body_params.store('code', code)
 
-      response = call_api('POST', "https://#{oauth_base_path}/oauth/token", header_params: header_params, form_params: body_params, return_type: 'String')
+      response = call_api('POST', "https://#{@oauth_base_path}/oauth/token", header_params: header_params, form_params: body_params, return_type: 'String')
 
       data = JSON.parse(response[0])
       reponse_status_code = response[1]
@@ -437,6 +438,33 @@ module DocuSign_eSign
       end
 
       data
+    end
+
+    def refresh_token(integrator_key, secret_key, refresh_token)
+      basic_authorization = basic_authorization_token(integrator_key, secret_key)
+
+      header_params = {}
+      header_params.store('Content-Type', 'application/x-www-form-urlencoded')
+      header_params.store('Authorization', "Basic #{basic_authorization}")
+
+      body_params = {}
+      body_params.store('grant_type', 'refresh_token')
+      body_params.store('refresh_token', refresh_token)
+
+      response = call_api('POST', "https://#{@oauth_base_path}/oauth/token", header_params: header_params, form_params: body_params, return_type: 'String')
+
+      data = JSON.parse(response[0])
+      reponse_status_code = response[1]
+
+      if response.present? && reponse_status_code == 200 && data['access_token'].present? && data['token_type'].present?
+        @default_headers.store('Authorization', "#{data['token_type']} #{data['access_token']}")
+      end
+
+      data
+    end
+
+    def basic_authorization_token(integrator_key, secret_key)
+      Base64.encode64("#{integrator_key}:#{secret_key}").delete("\n")
     end
   end
 end

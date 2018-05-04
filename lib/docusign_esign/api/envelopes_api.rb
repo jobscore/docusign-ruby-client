@@ -14,7 +14,7 @@ require "uri"
 module DocuSign_eSign
 
   class CreateEnvelopeOptions
-    # 
+    #
     attr_accessor :cdse_mode
 
     # If set to true then we want to set the sourceEnvelopeId to indicate that this is a\"forward\" envelope action
@@ -38,7 +38,7 @@ module DocuSign_eSign
   end
 
   class GetChunkedUploadOptions
-    # 
+    #
     attr_accessor :include
 
     def self.default
@@ -47,7 +47,7 @@ module DocuSign_eSign
   end
 
   class GetConsumerDisclosureOptions
-    # 
+    #
     attr_accessor :lang_code2
 
     def self.default
@@ -56,7 +56,7 @@ module DocuSign_eSign
   end
 
   class GetConsumerDisclosureDefaultOptions
-    # 
+    #
     attr_accessor :lang_code
 
     def self.default
@@ -68,22 +68,22 @@ module DocuSign_eSign
     # When set to **false**, the envelope signing certificate is removed from the download.
     attr_accessor :certificate
 
-    # 
+    #
     attr_accessor :encoding
 
     # When set to **true**, the PDF bytes returned in the response are encrypted for all the key managers configured on your DocuSign account. The documents can be decrypted with the KeyManager Decrypt Document API.
     attr_accessor :encrypt
 
-    # Specifies the language for the Certificate of Completion in the response. The supported languages, with the language value shown in parenthesis, are: Chinese Simplified (zh_CN), , Chinese Traditional (zh_TW), Dutch (nl), English US (en), French (fr), German (de), Italian (it), Japanese (ja), Korean (ko), Portuguese (pt), Portuguese (Brazil) (pt_BR), Russian (ru), Spanish (es). 
+    # Specifies the language for the Certificate of Completion in the response. The supported languages, with the language value shown in parenthesis, are: Chinese Simplified (zh_CN), , Chinese Traditional (zh_TW), Dutch (nl), English US (en), French (fr), German (de), Italian (it), Japanese (ja), Korean (ko), Portuguese (pt), Portuguese (Brazil) (pt_BR), Russian (ru), Spanish (es).
     attr_accessor :language
 
-    # 
+    #
     attr_accessor :recipient_id
 
-    # When set to **true**, any changed fields for the returned PDF are highlighted in yellow and optional signatures or initials outlined in red. 
+    # When set to **true**, any changed fields for the returned PDF are highlighted in yellow and optional signatures or initials outlined in red.
     attr_accessor :show_changes
 
-    # When set to **true**, the account has the watermark feature enabled, and the envelope is not complete, the watermark for the account is added to the PDF documents. This option can remove the watermark. 
+    # When set to **true**, the account has the watermark feature enabled, and the envelope is not complete, the watermark for the account is added to the PDF documents. This option can remove the watermark.
     attr_accessor :watermark
 
     def self.default
@@ -101,7 +101,7 @@ module DocuSign_eSign
     # Sets the maximum width for the page image in pixels. The dpi is recalculated based on this setting.
     attr_accessor :max_width
 
-    # 
+    #
     attr_accessor :show_changes
 
     def self.default
@@ -113,7 +113,7 @@ module DocuSign_eSign
     # When true, envelope information can be added or modified.
     attr_accessor :advanced_update
 
-    # 
+    #
     attr_accessor :include
 
     def self.default
@@ -140,7 +140,7 @@ module DocuSign_eSign
   end
 
   class ListDocumentsOptions
-    # 
+    #
     attr_accessor :include_metadata
 
     def self.default
@@ -149,13 +149,13 @@ module DocuSign_eSign
   end
 
   class ListRecipientsOptions
-    #  When set to **true** and `include_tabs` is set to **true**, all tabs with anchor tab properties are included in the response. 
+    #  When set to **true** and `include_tabs` is set to **true**, all tabs with anchor tab properties are included in the response.
     attr_accessor :include_anchor_tab_locations
 
-    #  When set to **true**, the extended properties are included in the response. 
+    #  When set to **true**, the extended properties are included in the response.
     attr_accessor :include_extended
 
-    # 
+    #
     attr_accessor :include_metadata
 
     # When set to **true**, the tab information associated with the recipient is included in the response.
@@ -167,16 +167,16 @@ module DocuSign_eSign
   end
 
   class ListStatusOptions
-    # 
+    #
     attr_accessor :email
 
-    # 
+    #
     attr_accessor :from_date
 
-    # 
+    #
     attr_accessor :start_position
 
-    # 
+    #
     attr_accessor :to_date
 
     def self.default
@@ -188,28 +188,28 @@ module DocuSign_eSign
     # Specifies the Authoritative Copy Status for the envelopes. The possible values are: Unknown, Original, Transferred, AuthoritativeCopy, AuthoritativeCopyExportPending, AuthoritativeCopyExported, DepositPending, Deposited, DepositedEO, or DepositFailed.
     attr_accessor :ac_status
 
-    # 
+    #
     attr_accessor :block
 
-    # 
+    #
     attr_accessor :count
 
-    # This specifies the envelope custom field name and value searched for in the envelope information. The value portion of the query can use partial strings by adding '%' (percent sign) around the custom field query value.   Example 1: If you have an envelope custom field called \"Region\" and you want to search for all envelopes where the value is \"West\" you would use the query: `?custom_field=Region=West`.   Example 2: To search for envelopes where the `ApplicationID` custom field has the value or partial value of \"DocuSign\" in field, the query would be: `?custom_field=ApplicationId=%DocuSign%` This would find envelopes where the custom field value is \"DocuSign for Salesforce\" or \"DocuSign envelope.\"  
+    # This specifies the envelope custom field name and value searched for in the envelope information. The value portion of the query can use partial strings by adding '%' (percent sign) around the custom field query value.   Example 1: If you have an envelope custom field called \"Region\" and you want to search for all envelopes where the value is \"West\" you would use the query: `?custom_field=Region=West`.   Example 2: To search for envelopes where the `ApplicationID` custom field has the value or partial value of \"DocuSign\" in field, the query would be: `?custom_field=ApplicationId=%DocuSign%` This would find envelopes where the custom field value is \"DocuSign for Salesforce\" or \"DocuSign envelope.\"
     attr_accessor :custom_field
 
-    # 
+    #
     attr_accessor :email
 
-    # 
+    #
     attr_accessor :envelope_ids
 
-    # 
+    #
     attr_accessor :exclude
 
-    # 
+    #
     attr_accessor :folder_ids
 
-    # 
+    #
     attr_accessor :folder_types
 
     # The date/time setting that specifies the date/time when the request begins checking for status changes for envelopes in the account.  This is required unless 'envelopeId's are used.
@@ -218,43 +218,43 @@ module DocuSign_eSign
     # This is the status type checked for in the `from_date`/`to_date` period. If `changed` is specified, then envelopes that changed status during the period are found. If for example, `created` is specified, then envelopes created during the period are found. Default is `changed`.   Possible values are: Voided, Changed, Created, Deleted, Sent, Delivered, Signed, Completed, Declined, TimedOut and Processing.
     attr_accessor :from_to_status
 
-    # 
+    #
     attr_accessor :include
 
-    # 
+    #
     attr_accessor :intersecting_folder_ids
 
-    # 
+    #
     attr_accessor :order
 
-    # 
+    #
     attr_accessor :order_by
 
-    # 
+    #
     attr_accessor :powerformids
 
-    # 
+    #
     attr_accessor :search_text
 
-    # 
+    #
     attr_accessor :start_position
 
     # The list of current statuses to include in the response. By default, all envelopes found are returned. If values are specified, then of the envelopes found, only those with the current status specified are returned in the results.   Possible values are: Voided, Created, Deleted, Sent, Delivered, Signed, Completed, Declined, TimedOut and Processing.
     attr_accessor :status
 
-    # Optional date/time setting that specifies the date/time when the request stops for status changes for envelopes in the account. If no entry, the system uses the time of the call as the `to_date`. 
+    # Optional date/time setting that specifies the date/time when the request stops for status changes for envelopes in the account. If no entry, the system uses the time of the call as the `to_date`.
     attr_accessor :to_date
 
-    # If included in the query string, this is a comma separated list of envelope `transactionId`s.   If included in the `request_body`, this is a list of envelope `transactionId`s.   ###### Note: `transactionId`s are only valid in the DocuSign system for seven days. 
+    # If included in the query string, this is a comma separated list of envelope `transactionId`s.   If included in the `request_body`, this is a list of envelope `transactionId`s.   ###### Note: `transactionId`s are only valid in the DocuSign system for seven days.
     attr_accessor :transaction_ids
 
-    # 
+    #
     attr_accessor :user_filter
 
-    # 
+    #
     attr_accessor :user_id
 
-    # 
+    #
     attr_accessor :user_name
 
     def self.default
@@ -263,10 +263,10 @@ module DocuSign_eSign
   end
 
   class ListTabsOptions
-    # When set to **true**, all tabs with anchor tab properties are included in the response. 
+    # When set to **true**, all tabs with anchor tab properties are included in the response.
     attr_accessor :include_anchor_tab_locations
 
-    # 
+    #
     attr_accessor :include_metadata
 
     def self.default
@@ -284,7 +284,7 @@ module DocuSign_eSign
   end
 
   class ListTemplatesForDocumentOptions
-    # 
+    #
     attr_accessor :include
 
     def self.default
@@ -305,7 +305,7 @@ module DocuSign_eSign
   end
 
   class UpdateChunkedUploadOptions
-    # 
+    #
     attr_accessor :action
 
     def self.default
@@ -314,7 +314,7 @@ module DocuSign_eSign
   end
 
   class UpdateDocumentOptions
-    # 
+    #
     attr_accessor :apply_document_fields
 
     def self.default
@@ -463,7 +463,7 @@ module DocuSign_eSign
     end
 
     # Initiate a new ChunkedUpload.
-    # 
+    #
     # @param account_id The external account number (int) or account ID Guid.
     # @param chunked_upload_request  (optional parameter)
     # @return [ChunkedUploadResponse]
@@ -473,7 +473,7 @@ module DocuSign_eSign
     end
 
     # Initiate a new ChunkedUpload.
-    # 
+    #
     # @param account_id The external account number (int) or account ID Guid.
     # @param chunked_upload_request  (optional parameter)
     # @return [Array<(ChunkedUploadResponse, Fixnum, Hash)>] ChunkedUploadResponse data, response status code and response headers
@@ -565,7 +565,7 @@ module DocuSign_eSign
     end
 
     # Returns a URL to the envelope correction UI.
-    # Returns a URL that allows you to embed the envelope correction view of the DocuSign UI in your applications.  Important: iFrames should not be used for embedded operations on mobile devices due to screen space issues. For iOS devices DocuSign recommends using a WebView. 
+    # Returns a URL that allows you to embed the envelope correction view of the DocuSign UI in your applications.  Important: iFrames should not be used for embedded operations on mobile devices due to screen space issues. For iOS devices DocuSign recommends using a WebView.
     # @param account_id The external account number (int) or account ID Guid.
     # @param envelope_id The envelopeId Guid of the envelope being accessed.
     # @param correct_view_request  (optional parameter)
@@ -576,7 +576,7 @@ module DocuSign_eSign
     end
 
     # Returns a URL to the envelope correction UI.
-    # Returns a URL that allows you to embed the envelope correction view of the DocuSign UI in your applications.  Important: iFrames should not be used for embedded operations on mobile devices due to screen space issues. For iOS devices DocuSign recommends using a WebView. 
+    # Returns a URL that allows you to embed the envelope correction view of the DocuSign UI in your applications.  Important: iFrames should not be used for embedded operations on mobile devices due to screen space issues. For iOS devices DocuSign recommends using a WebView.
     # @param account_id The external account number (int) or account ID Guid.
     # @param envelope_id The envelopeId Guid of the envelope being accessed.
     # @param correct_view_request  (optional parameter)
@@ -734,7 +734,7 @@ module DocuSign_eSign
     end
 
     # Returns a URL to the edit view UI.
-    # Returns a URL that allows you to embed the edit view of the DocuSign UI in your applications. This is a one-time use login token that allows the user to be placed into the DocuSign editing view.   Upon sending completion, the user is returned to the return URL provided by the API application.  Important: iFrames should not be used for embedded operations on mobile devices due to screen space issues. For iOS devices DocuSign recommends using a WebView. 
+    # Returns a URL that allows you to embed the edit view of the DocuSign UI in your applications. This is a one-time use login token that allows the user to be placed into the DocuSign editing view.   Upon sending completion, the user is returned to the return URL provided by the API application.  Important: iFrames should not be used for embedded operations on mobile devices due to screen space issues. For iOS devices DocuSign recommends using a WebView.
     # @param account_id The external account number (int) or account ID Guid.
     # @param envelope_id The envelopeId Guid of the envelope being accessed.
     # @param return_url_request  (optional parameter)
@@ -745,7 +745,7 @@ module DocuSign_eSign
     end
 
     # Returns a URL to the edit view UI.
-    # Returns a URL that allows you to embed the edit view of the DocuSign UI in your applications. This is a one-time use login token that allows the user to be placed into the DocuSign editing view.   Upon sending completion, the user is returned to the return URL provided by the API application.  Important: iFrames should not be used for embedded operations on mobile devices due to screen space issues. For iOS devices DocuSign recommends using a WebView. 
+    # Returns a URL that allows you to embed the edit view of the DocuSign UI in your applications. This is a one-time use login token that allows the user to be placed into the DocuSign editing view.   Upon sending completion, the user is returned to the return URL provided by the API application.  Important: iFrames should not be used for embedded operations on mobile devices due to screen space issues. For iOS devices DocuSign recommends using a WebView.
     # @param account_id The external account number (int) or account ID Guid.
     # @param envelope_id The envelopeId Guid of the envelope being accessed.
     # @param return_url_request  (optional parameter)
@@ -1068,7 +1068,7 @@ module DocuSign_eSign
     end
 
     # Returns a URL to the sender view UI.
-    # Returns a URL that allows you to embed the sender view of the DocuSign UI in your applications. This is a one-time use login token that allows the user to be placed into the DocuSign sending view.   Upon sending completion, the user is returned to the return URL provided by the API application.  Important: iFrames should not be used for embedded operations on mobile devices due to screen space issues. For iOS devices DocuSign recommends using a WebView. 
+    # Returns a URL that allows you to embed the sender view of the DocuSign UI in your applications. This is a one-time use login token that allows the user to be placed into the DocuSign sending view.   Upon sending completion, the user is returned to the return URL provided by the API application.  Important: iFrames should not be used for embedded operations on mobile devices due to screen space issues. For iOS devices DocuSign recommends using a WebView.
     # @param account_id The external account number (int) or account ID Guid.
     # @param envelope_id The envelopeId Guid of the envelope being accessed.
     # @param return_url_request  (optional parameter)
@@ -1079,7 +1079,7 @@ module DocuSign_eSign
     end
 
     # Returns a URL to the sender view UI.
-    # Returns a URL that allows you to embed the sender view of the DocuSign UI in your applications. This is a one-time use login token that allows the user to be placed into the DocuSign sending view.   Upon sending completion, the user is returned to the return URL provided by the API application.  Important: iFrames should not be used for embedded operations on mobile devices due to screen space issues. For iOS devices DocuSign recommends using a WebView. 
+    # Returns a URL that allows you to embed the sender view of the DocuSign UI in your applications. This is a one-time use login token that allows the user to be placed into the DocuSign sending view.   Upon sending completion, the user is returned to the return URL provided by the API application.  Important: iFrames should not be used for embedded operations on mobile devices due to screen space issues. For iOS devices DocuSign recommends using a WebView.
     # @param account_id The external account number (int) or account ID Guid.
     # @param envelope_id The envelopeId Guid of the envelope being accessed.
     # @param return_url_request  (optional parameter)
@@ -1237,7 +1237,7 @@ module DocuSign_eSign
     end
 
     # Delete one or more attachments from a DRAFT envelope.
-    # 
+    #
     # @param account_id The external account number (int) or account ID Guid.
     # @param envelope_id The envelopeId Guid of the envelope being accessed.
     # @param envelope_attachments_request  (optional parameter)
@@ -1248,7 +1248,7 @@ module DocuSign_eSign
     end
 
     # Delete one or more attachments from a DRAFT envelope.
-    # 
+    #
     # @param account_id The external account number (int) or account ID Guid.
     # @param envelope_id The envelopeId Guid of the envelope being accessed.
     # @param envelope_attachments_request  (optional parameter)
@@ -1292,9 +1292,9 @@ module DocuSign_eSign
     end
 
     # Delete an existing ChunkedUpload.
-    # 
+    #
     # @param account_id The external account number (int) or account ID Guid.
-    # @param chunked_upload_id 
+    # @param chunked_upload_id
     # @return [ChunkedUploadResponse]
     def delete_chunked_upload(account_id, chunked_upload_id)
       data, _status_code, _headers = delete_chunked_upload_with_http_info(account_id, chunked_upload_id)
@@ -1302,9 +1302,9 @@ module DocuSign_eSign
     end
 
     # Delete an existing ChunkedUpload.
-    # 
+    #
     # @param account_id The external account number (int) or account ID Guid.
-    # @param chunked_upload_id 
+    # @param chunked_upload_id
     # @return [Array<(ChunkedUploadResponse, Fixnum, Hash)>] ChunkedUploadResponse data, response status code and response headers
     def delete_chunked_upload_with_http_info(account_id, chunked_upload_id)
       if @api_client.config.debugging
@@ -1963,9 +1963,9 @@ module DocuSign_eSign
     end
 
     # Retrieves an attachment from the envelope.
-    # 
+    #
     # @param account_id The external account number (int) or account ID Guid.
-    # @param attachment_id 
+    # @param attachment_id
     # @param envelope_id The envelopeId Guid of the envelope being accessed.
     # @return [nil]
     def get_attachment(account_id, attachment_id, envelope_id)
@@ -1974,9 +1974,9 @@ module DocuSign_eSign
     end
 
     # Retrieves an attachment from the envelope.
-    # 
+    #
     # @param account_id The external account number (int) or account ID Guid.
-    # @param attachment_id 
+    # @param attachment_id
     # @param envelope_id The envelopeId Guid of the envelope being accessed.
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
     def get_attachment_with_http_info(account_id, attachment_id, envelope_id)
@@ -2019,7 +2019,7 @@ module DocuSign_eSign
     end
 
     # Returns a list of attachments associated with the specified envelope
-    # 
+    #
     # @param account_id The external account number (int) or account ID Guid.
     # @param envelope_id The envelopeId Guid of the envelope being accessed.
     # @return [EnvelopeAttachmentsResult]
@@ -2029,7 +2029,7 @@ module DocuSign_eSign
     end
 
     # Returns a list of attachments associated with the specified envelope
-    # 
+    #
     # @param account_id The external account number (int) or account ID Guid.
     # @param envelope_id The envelopeId Guid of the envelope being accessed.
     # @return [Array<(EnvelopeAttachmentsResult, Fixnum, Hash)>] EnvelopeAttachmentsResult data, response status code and response headers
@@ -2072,9 +2072,9 @@ module DocuSign_eSign
     end
 
     # Retrieves the current metadata of a ChunkedUpload.
-    # 
+    #
     # @param account_id The external account number (int) or account ID Guid.
-    # @param chunked_upload_id 
+    # @param chunked_upload_id
     # @param DocuSign_eSign::GetChunkedUploadOptions Options for modifying the behavior of the function.
     # @return [ChunkedUploadResponse]
     def get_chunked_upload(account_id, chunked_upload_id, options = DocuSign_eSign::GetChunkedUploadOptions.default)
@@ -2083,9 +2083,9 @@ module DocuSign_eSign
     end
 
     # Retrieves the current metadata of a ChunkedUpload.
-    # 
+    #
     # @param account_id The external account number (int) or account ID Guid.
-    # @param chunked_upload_id 
+    # @param chunked_upload_id
     # @param DocuSign_eSign::GetChunkedUploadOptions Options for modifying the behavior of the function.
     # @return [Array<(ChunkedUploadResponse, Fixnum, Hash)>] ChunkedUploadResponse data, response status code and response headers
     def get_chunked_upload_with_http_info(account_id, chunked_upload_id, options = DocuSign_eSign::GetChunkedUploadOptions.default)
@@ -2495,7 +2495,7 @@ module DocuSign_eSign
     end
 
     # Returns envelope form data for an existing envelope.
-    # 
+    #
     # @param account_id The external account number (int) or account ID Guid.
     # @param envelope_id The envelopeId Guid of the envelope being accessed.
     # @return [EnvelopeFormData]
@@ -2505,7 +2505,7 @@ module DocuSign_eSign
     end
 
     # Returns envelope form data for an existing envelope.
-    # 
+    #
     # @param account_id The external account number (int) or account ID Guid.
     # @param envelope_id The envelopeId Guid of the envelope being accessed.
     # @return [Array<(EnvelopeFormData, Fixnum, Hash)>] EnvelopeFormData data, response status code and response headers
@@ -2654,7 +2654,7 @@ module DocuSign_eSign
     end
 
     # Returns document visibility for the recipients
-    # 
+    #
     # @param account_id The external account number (int) or account ID Guid.
     # @param envelope_id The envelopeId Guid of the envelope being accessed.
     # @param recipient_id The ID of the recipient being accessed.
@@ -2665,7 +2665,7 @@ module DocuSign_eSign
     end
 
     # Returns document visibility for the recipients
-    # 
+    #
     # @param account_id The external account number (int) or account ID Guid.
     # @param envelope_id The envelopeId Guid of the envelope being accessed.
     # @param recipient_id The ID of the recipient being accessed.
@@ -2888,7 +2888,7 @@ module DocuSign_eSign
     end
 
     # Returns document visibility for the recipients
-    # 
+    #
     # @param account_id The external account number (int) or account ID Guid.
     # @param recipient_id The ID of the recipient being accessed.
     # @param template_id The ID of the template being accessed.
@@ -2899,7 +2899,7 @@ module DocuSign_eSign
     end
 
     # Returns document visibility for the recipients
-    # 
+    #
     # @param account_id The external account number (int) or account ID Guid.
     # @param recipient_id The ID of the recipient being accessed.
     # @param template_id The ID of the template being accessed.
@@ -3416,7 +3416,7 @@ module DocuSign_eSign
     end
 
     # Get List of Templates used in an Envelope
-    # This returns a list of the server-side templates, their name and ID, used in an envelope. 
+    # This returns a list of the server-side templates, their name and ID, used in an envelope.
     # @param account_id The external account number (int) or account ID Guid.
     # @param envelope_id The envelopeId Guid of the envelope being accessed.
     # @param DocuSign_eSign::ListTemplatesOptions Options for modifying the behavior of the function.
@@ -3427,7 +3427,7 @@ module DocuSign_eSign
     end
 
     # Get List of Templates used in an Envelope
-    # This returns a list of the server-side templates, their name and ID, used in an envelope. 
+    # This returns a list of the server-side templates, their name and ID, used in an envelope.
     # @param account_id The external account number (int) or account ID Guid.
     # @param envelope_id The envelopeId Guid of the envelope being accessed.
     # @param DocuSign_eSign::ListTemplatesOptions Options for modifying the behavior of the function.
@@ -3532,9 +3532,9 @@ module DocuSign_eSign
     end
 
     # Add an attachment to a DRAFT or IN-PROCESS envelope.
-    # 
+    #
     # @param account_id The external account number (int) or account ID Guid.
-    # @param attachment_id 
+    # @param attachment_id
     # @param envelope_id The envelopeId Guid of the envelope being accessed.
     # @param attachment  (optional parameter)
     # @return [EnvelopeAttachmentsResult]
@@ -3544,9 +3544,9 @@ module DocuSign_eSign
     end
 
     # Add an attachment to a DRAFT or IN-PROCESS envelope.
-    # 
+    #
     # @param account_id The external account number (int) or account ID Guid.
-    # @param attachment_id 
+    # @param attachment_id
     # @param envelope_id The envelopeId Guid of the envelope being accessed.
     # @param attachment  (optional parameter)
     # @return [Array<(EnvelopeAttachmentsResult, Fixnum, Hash)>] EnvelopeAttachmentsResult data, response status code and response headers
@@ -3591,7 +3591,7 @@ module DocuSign_eSign
     end
 
     # Add one or more attachments to a DRAFT or IN-PROCESS envelope.
-    # 
+    #
     # @param account_id The external account number (int) or account ID Guid.
     # @param envelope_id The envelopeId Guid of the envelope being accessed.
     # @param envelope_attachments_request  (optional parameter)
@@ -3602,7 +3602,7 @@ module DocuSign_eSign
     end
 
     # Add one or more attachments to a DRAFT or IN-PROCESS envelope.
-    # 
+    #
     # @param account_id The external account number (int) or account ID Guid.
     # @param envelope_id The envelopeId Guid of the envelope being accessed.
     # @param envelope_attachments_request  (optional parameter)
@@ -3767,9 +3767,9 @@ module DocuSign_eSign
     end
 
     # Integrity-Check and Commit a ChunkedUpload, readying it for use elsewhere.
-    # 
+    #
     # @param account_id The external account number (int) or account ID Guid.
-    # @param chunked_upload_id 
+    # @param chunked_upload_id
     # @param DocuSign_eSign::UpdateChunkedUploadOptions Options for modifying the behavior of the function.
     # @return [ChunkedUploadResponse]
     def update_chunked_upload(account_id, chunked_upload_id, options = DocuSign_eSign::UpdateChunkedUploadOptions.default)
@@ -3778,9 +3778,9 @@ module DocuSign_eSign
     end
 
     # Integrity-Check and Commit a ChunkedUpload, readying it for use elsewhere.
-    # 
+    #
     # @param account_id The external account number (int) or account ID Guid.
-    # @param chunked_upload_id 
+    # @param chunked_upload_id
     # @param DocuSign_eSign::UpdateChunkedUploadOptions Options for modifying the behavior of the function.
     # @return [Array<(ChunkedUploadResponse, Fixnum, Hash)>] ChunkedUploadResponse data, response status code and response headers
     def update_chunked_upload_with_http_info(account_id, chunked_upload_id, options = DocuSign_eSign::UpdateChunkedUploadOptions.default)
@@ -3823,10 +3823,10 @@ module DocuSign_eSign
     end
 
     # Add a chunk, a chunk 'part', to an existing ChunkedUpload.
-    # 
+    #
     # @param account_id The external account number (int) or account ID Guid.
-    # @param chunked_upload_id 
-    # @param chunked_upload_part_seq 
+    # @param chunked_upload_id
+    # @param chunked_upload_part_seq
     # @param chunked_upload_request  (optional parameter)
     # @return [ChunkedUploadResponse]
     def update_chunked_upload_part(account_id, chunked_upload_id, chunked_upload_part_seq, chunked_upload_request)
@@ -3835,10 +3835,10 @@ module DocuSign_eSign
     end
 
     # Add a chunk, a chunk &#39;part&#39;, to an existing ChunkedUpload.
-    # 
+    #
     # @param account_id The external account number (int) or account ID Guid.
-    # @param chunked_upload_id 
-    # @param chunked_upload_part_seq 
+    # @param chunked_upload_id
+    # @param chunked_upload_part_seq
     # @param chunked_upload_request  (optional parameter)
     # @return [Array<(ChunkedUploadResponse, Fixnum, Hash)>] ChunkedUploadResponse data, response status code and response headers
     def update_chunked_upload_part_with_http_info(account_id, chunked_upload_id, chunked_upload_part_seq, chunked_upload_request)
@@ -3882,7 +3882,7 @@ module DocuSign_eSign
     end
 
     # Updates envelope custom fields in an envelope.
-    # Updates the envelope custom fields in draft and in-process envelopes.  Each custom field used in an envelope must have a unique name. 
+    # Updates the envelope custom fields in draft and in-process envelopes.  Each custom field used in an envelope must have a unique name.
     # @param account_id The external account number (int) or account ID Guid.
     # @param envelope_id The envelopeId Guid of the envelope being accessed.
     # @param custom_fields  (optional parameter)
@@ -3893,7 +3893,7 @@ module DocuSign_eSign
     end
 
     # Updates envelope custom fields in an envelope.
-    # Updates the envelope custom fields in draft and in-process envelopes.  Each custom field used in an envelope must have a unique name. 
+    # Updates the envelope custom fields in draft and in-process envelopes.  Each custom field used in an envelope must have a unique name.
     # @param account_id The external account number (int) or account ID Guid.
     # @param envelope_id The envelopeId Guid of the envelope being accessed.
     # @param custom_fields  (optional parameter)
@@ -3943,8 +3943,8 @@ module DocuSign_eSign
     # @param envelope_id The envelopeId Guid of the envelope being accessed.
     # @param DocuSign_eSign::UpdateDocumentOptions Options for modifying the behavior of the function.
     # @return [nil]
-    def update_document(account_id, document_id, envelope_id, options = DocuSign_eSign::UpdateDocumentOptions.default)
-      update_document_with_http_info(account_id, document_id, envelope_id, options)
+    def update_document(account_id, document_id, envelope_id, document_definition, options = DocuSign_eSign::UpdateDocumentOptions.default)
+      update_document_with_http_info(account_id, document_id, envelope_id, document_definition, options)
       return nil
     end
 
@@ -3955,10 +3955,11 @@ module DocuSign_eSign
     # @param envelope_id The envelopeId Guid of the envelope being accessed.
     # @param DocuSign_eSign::UpdateDocumentOptions Options for modifying the behavior of the function.
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
-    def update_document_with_http_info(account_id, document_id, envelope_id, options = DocuSign_eSign::UpdateDocumentOptions.default)
+    def update_document_with_http_info(account_id, document_id, envelope_id, document_definition, options = DocuSign_eSign::UpdateDocumentOptions.default)
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: EnvelopesApi.update_document ..."
       end
+
       # verify the required parameter 'account_id' is set
       fail ArgumentError, "Missing the required parameter 'account_id' when calling EnvelopesApi.update_document" if account_id.nil?
       # verify the required parameter 'document_id' is set
@@ -3981,8 +3982,9 @@ module DocuSign_eSign
       form_params = {}
 
       # http body (model)
-      post_body = nil
+      post_body = @api_client.object_to_http_body(document_definition)
       auth_names = []
+
       data, status_code, headers = @api_client.call_api(:PUT, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -4223,7 +4225,7 @@ module DocuSign_eSign
     end
 
     # Sets envelope notification (Reminders/Expirations) structure for an existing envelope.
-    # 
+    #
     # @param account_id The external account number (int) or account ID Guid.
     # @param envelope_id The envelopeId Guid of the envelope being accessed.
     # @param envelope_notification_request  (optional parameter)
@@ -4234,7 +4236,7 @@ module DocuSign_eSign
     end
 
     # Sets envelope notification (Reminders/Expirations) structure for an existing envelope.
-    # 
+    #
     # @param account_id The external account number (int) or account ID Guid.
     # @param envelope_id The envelopeId Guid of the envelope being accessed.
     # @param envelope_notification_request  (optional parameter)
@@ -4278,7 +4280,7 @@ module DocuSign_eSign
     end
 
     # Updates document visibility for the recipients
-    # 
+    #
     # @param account_id The external account number (int) or account ID Guid.
     # @param envelope_id The envelopeId Guid of the envelope being accessed.
     # @param recipient_id The ID of the recipient being accessed.
@@ -4290,7 +4292,7 @@ module DocuSign_eSign
     end
 
     # Updates document visibility for the recipients
-    # 
+    #
     # @param account_id The external account number (int) or account ID Guid.
     # @param envelope_id The envelopeId Guid of the envelope being accessed.
     # @param recipient_id The ID of the recipient being accessed.
@@ -4507,7 +4509,7 @@ module DocuSign_eSign
     end
 
     # Updates document visibility for the recipients
-    # 
+    #
     # @param account_id The external account number (int) or account ID Guid.
     # @param envelope_id The envelopeId Guid of the envelope being accessed.
     # @param document_visibility_list  (optional parameter)
@@ -4518,7 +4520,7 @@ module DocuSign_eSign
     end
 
     # Updates document visibility for the recipients
-    # 
+    #
     # @param account_id The external account number (int) or account ID Guid.
     # @param envelope_id The envelopeId Guid of the envelope being accessed.
     # @param document_visibility_list  (optional parameter)
@@ -4561,7 +4563,7 @@ module DocuSign_eSign
       return data, status_code, headers
     end
 
-    # Updates the tabs for a recipient.  
+    # Updates the tabs for a recipient.
     # Updates one or more tabs for a recipient in a draft envelope.
     # @param account_id The external account number (int) or account ID Guid.
     # @param envelope_id The envelopeId Guid of the envelope being accessed.
@@ -4573,7 +4575,7 @@ module DocuSign_eSign
       return data
     end
 
-    # Updates the tabs for a recipient.  
+    # Updates the tabs for a recipient.
     # Updates one or more tabs for a recipient in a draft envelope.
     # @param account_id The external account number (int) or account ID Guid.
     # @param envelope_id The envelopeId Guid of the envelope being accessed.
@@ -4621,7 +4623,7 @@ module DocuSign_eSign
     end
 
     # Updates document visibility for the recipients
-    # 
+    #
     # @param account_id The external account number (int) or account ID Guid.
     # @param recipient_id The ID of the recipient being accessed.
     # @param template_id The ID of the template being accessed.
@@ -4633,7 +4635,7 @@ module DocuSign_eSign
     end
 
     # Updates document visibility for the recipients
-    # 
+    #
     # @param account_id The external account number (int) or account ID Guid.
     # @param recipient_id The ID of the recipient being accessed.
     # @param template_id The ID of the template being accessed.
@@ -4680,7 +4682,7 @@ module DocuSign_eSign
     end
 
     # Updates document visibility for the recipients
-    # 
+    #
     # @param account_id The external account number (int) or account ID Guid.
     # @param template_id The ID of the template being accessed.
     # @param template_document_visibility_list  (optional parameter)
@@ -4691,7 +4693,7 @@ module DocuSign_eSign
     end
 
     # Updates document visibility for the recipients
-    # 
+    #
     # @param account_id The external account number (int) or account ID Guid.
     # @param template_id The ID of the template being accessed.
     # @param template_document_visibility_list  (optional parameter)

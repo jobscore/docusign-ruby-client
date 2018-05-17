@@ -454,13 +454,18 @@ module DocuSign_eSign
       response = call_api('POST', "https://#{@oauth_base_path}/oauth/token", header_params: header_params, form_params: body_params, return_type: 'String')
 
       data = JSON.parse(response[0])
-      reponse_status_code = response[1]
+      response_status_code = response[1]
 
-      if response.present? && reponse_status_code == 200 && data['access_token'].present? && data['token_type'].present?
+      if response.present? && response_status_code == 200 && data['access_token'].present? && data['token_type'].present?
         @default_headers.store('Authorization', "#{data['token_type']} #{data['access_token']}")
       end
 
       data
+    end
+
+    def user_info
+      response = call_api('GET', "https://#{@oauth_base_path}/oauth/userinfo", return_type: 'String')
+      response[1] == 200 && response.present? ? JSON.parse(response[0]) : nil
     end
 
     def basic_authorization_token(integrator_key, secret_key)
